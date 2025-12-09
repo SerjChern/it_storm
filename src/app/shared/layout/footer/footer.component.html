@@ -1,0 +1,150 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <a href="#" class="logo">
+        <img src="/assets/images/logo.svg" alt="logo">
+      </a>
+      <div class="footer-menu">
+        <nav>
+          <ul>
+            <li>
+              <a routerLink="/services">Услуги</a>
+            </li>
+            <li>
+              <a routerLink="/about">О нас</a>
+            </li>
+            <li>
+              <a routerLink="/articles">Статьи</a>
+            </li>
+            <li>
+              <a routerLink="/feedback">Отзывы</a>
+            </li>
+            <li>
+              <a routerLink="/contacts">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-info">
+        <div class="footer-bottom-info-item">
+          <div class="footer-bottom-info-item-name">
+            Адрес
+          </div>
+          <div class="footer-bottom-info-item-info">
+            Пресненская наб., 12, Москва, Россия, 123317.
+          </div>
+        </div>
+        <div class="footer-bottom-info-item">
+          <div class="footer-bottom-info-item-name">
+            Телефон
+          </div>
+          <div class="footer-bottom-info-item-info">
+            +7 (499) 343-13-34
+          </div>
+          <button class="button button-footer" (click)="openCallback()">
+            Перезвоните мне
+          </button>
+        </div>
+        <div class="footer-bottom-info-item">
+          <div class="footer-bottom-info-item-name">
+            E-mail
+          </div>
+          <div class="footer-bottom-info-item-info">
+            <a href="mailto: info@itstorm.com">info@itstorm.com</a>
+          </div>
+        </div>
+        <div class="footer-bottom-info-item">
+          <div class="footer-bottom-info-item-name">
+            Мы в социальных сетях:
+          </div>
+          <div class="footer-bottom-info-item-info">
+            <div class="social">
+              <a href="#">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.000000" height="24.000000" fill="none">
+                  <rect id="vk-com" width="24.000000" height="24.000000" x="0.000000" y="0.000000" fill="rgb(255,255,255)" fill-opacity="0" />
+                  <path id="Vector" d="M6.81128 3.74976C5.12964 3.74976 3.74976 5.12964 3.74976 6.81128L3.74976 17.1882C3.74976 18.8699 5.12964 20.2498 6.81128 20.2498L17.1882 20.2498C18.8699 20.2498 20.2498 18.8699 20.2498 17.1882L20.2498 6.81128C20.2498 5.12964 18.8699 3.74976 17.1882 3.74976L6.81128 3.74976ZM6.81128 5.24976L17.1882 5.24976C18.0583 5.24976 18.7498 5.94116 18.7498 6.81128L18.7498 17.1882C18.7498 18.0583 18.0583 18.7498 17.1882 18.7498L6.81128 18.7498C5.94116 18.7498 5.24976 18.0583 5.24976 17.1882L5.24976 6.81128C5.24976 5.94116 5.94116 5.24976 6.81128 5.24976ZM11.7888 9.17261C11.238 9.16675 10.7693 9.17261 10.5056 9.30151C10.3298 9.38647 10.1951 9.57983 10.2771 9.58862C10.3796 9.60327 10.6111 9.65308 10.7341 9.82007C10.8923 10.0339 10.8865 10.5173 10.8865 10.5173C10.8865 10.5173 10.9744 11.8474 10.6726 12.0144C10.4646 12.1287 10.1804 11.8972 9.56519 10.8396C9.25171 10.2947 9.0144 9.69409 9.0144 9.69409C9.0144 9.69409 8.97046 9.58276 8.88843 9.52417C8.78882 9.45093 8.65112 9.42749 8.65112 9.42749L7.18335 9.43628C7.18335 9.43628 6.96362 9.44507 6.88452 9.53882C6.81128 9.62671 6.87866 9.79956 6.87866 9.79956C6.87866 9.79956 8.0271 12.4861 9.32788 13.8396C10.5203 15.0818 11.8738 14.9998 11.8738 14.9998L12.489 14.9998C12.489 14.9998 12.6736 14.9792 12.7673 14.8796C12.8552 14.7859 12.8523 14.6101 12.8523 14.6101C12.8523 14.6101 12.8406 13.7869 13.2214 13.6638C13.5994 13.5466 14.0798 14.4607 14.5925 14.8123C14.9822 15.0789 15.2781 15.0203 15.2781 15.0203L16.6492 14.9998C16.6492 14.9998 17.364 14.9558 17.0242 14.3904C16.9978 14.3464 16.8279 13.9744 16.0076 13.2126C15.1462 12.4158 15.2605 12.5447 16.2976 11.1648C16.9275 10.324 17.1794 9.81128 17.1003 9.58862C17.0242 9.38062 16.5613 9.43628 16.5613 9.43628L15.0173 9.44507C15.0173 9.44507 14.9031 9.43042 14.8181 9.48022C14.7361 9.53003 14.6833 9.64722 14.6833 9.64722C14.6833 9.64722 14.4373 10.2976 14.1121 10.8513C13.4265 12.0173 13.1482 12.0818 13.0369 12.0085C12.7761 11.8386 12.8406 11.3289 12.8406 10.9685C12.8406 9.83472 13.0134 9.36597 12.5066 9.24292C12.3396 9.2019 12.2166 9.17554 11.7888 9.17261Z" fill="rgb(7,23,57)" fill-rule="nonzero" />
+                </svg>
+              </a>
+              <a href="#">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.000000" height="24.000000" fill="none">
+                  <rect id="facebook" width="24.000000" height="24.000000" x="0.000000" y="0.000000" fill="rgb(255,255,255)" fill-opacity="0" />
+                  <path id="Vector" d="M11.9995 3.00024C7.03783 3.00024 2.99951 7.03856 2.99951 12.0002C2.99951 16.9619 7.03783 21.0002 11.9995 21.0002C16.9612 21.0002 20.9995 16.9619 20.9995 12.0002C20.9995 7.03856 16.9612 3.00024 11.9995 3.00024ZM11.9995 4.50024C16.1505 4.50024 19.4995 7.84923 19.4995 12.0002C19.4995 15.7708 16.7333 18.8712 13.1157 19.4094L13.1157 14.1873L15.2515 14.1873L15.5869 12.0178L13.1157 12.0178L13.1157 10.8328C13.1157 9.93201 13.4117 9.13208 14.2539 9.13208L15.6074 9.13208L15.6074 7.2395C15.3697 7.20725 14.8665 7.13696 13.9155 7.13696C11.9295 7.13696 10.7661 8.18545 10.7661 10.575L10.7661 12.0178L8.72412 12.0178L8.72412 14.1873L10.7661 14.1873L10.7661 19.3904C7.20615 18.8032 4.49951 15.73 4.49951 12.0002C4.49951 7.84923 7.84849 4.50024 11.9995 4.50024Z" fill="rgb(7,23,57)" fill-rule="nonzero" />
+                </svg>
+              </a>
+              <a href="#">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.000000" height="24.000000" fill="none">
+                  <rect id="instagram" width="24.000000" height="24.000000" x="0.000000" y="0.000000" fill="rgb(255,255,255)" fill-opacity="0" />
+                  <path id="Vector" d="M8.60181 3.74976C5.93872 3.74976 3.75024 5.9353 3.75024 8.60132L3.75024 15.3982C3.75024 18.0613 5.93579 20.2498 8.60181 20.2498L15.3987 20.2498C18.0618 20.2498 20.2502 18.0642 20.2502 15.3982L20.2502 8.60132C20.2502 5.93823 18.0647 3.74976 15.3987 3.74976L8.60181 3.74976ZM8.60181 5.24976L15.3987 5.24976C17.2532 5.24976 18.7502 6.74683 18.7502 8.60132L18.7502 15.3982C18.7502 17.2527 17.2532 18.7498 15.3987 18.7498L8.60181 18.7498C6.74731 18.7498 5.25024 17.2527 5.25024 15.3982L5.25024 8.60132C5.25024 6.74683 6.74731 5.24976 8.60181 5.24976ZM16.4299 6.89038C16.052 6.89038 15.7502 7.19214 15.7502 7.57007C15.7502 7.948 16.052 8.24976 16.4299 8.24976C16.8079 8.24976 17.1096 7.948 17.1096 7.57007C17.1096 7.19214 16.8079 6.89038 16.4299 6.89038ZM12.0002 7.49976C9.52466 7.49976 7.50024 9.52417 7.50024 11.9998C7.50024 14.4753 9.52466 16.4998 12.0002 16.4998C14.4758 16.4998 16.5002 14.4753 16.5002 11.9998C16.5002 9.52417 14.4758 7.49976 12.0002 7.49976ZM12.0002 8.99976C13.6672 8.99976 15.0002 10.3328 15.0002 11.9998C15.0002 13.6667 13.6672 14.9998 12.0002 14.9998C10.3333 14.9998 9.00024 13.6667 9.00024 11.9998C9.00024 10.3328 10.3333 8.99976 12.0002 8.99976Z" fill="rgb(7,23,57)" fill-rule="nonzero" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="footer-bottom-rights">
+        © 2022. Все права защищены
+      </div>
+    </div>
+  </div>
+</footer>
+
+<ng-template #callback_popup>
+  <div class="callback-popup" [formGroup]="callbackForm">
+    <div class="close-popup" (click)="closeDialog()">
+      <svg viewBox="0 0 14 14.2258" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14.000000" height="14.225830" fill="none" customFrame="#000000">
+        <rect id="Х" width="14.000000" height="14.000000" x="0.000000" y="0.225830" fill="rgb(255,255,255)" fill-opacity="0" />
+        <line id="Line 4" x1="0" x2="18" y1="0" y2="0" stroke="rgb(189.66,189.913,190.453)" stroke-linecap="round" stroke-width="1" transform="matrix(0.707107,0.707107,-0.707107,0.707107,0.582031,0.522217)" />
+        <line id="Line 5" x1="0" x2="18" y1="0" y2="0" stroke="rgb(189.66,189.913,190.453)" stroke-linecap="round" stroke-width="1" transform="matrix(-0.707107,0.707107,-0.707107,-0.707107,13.2771,0.501953)" />
+      </svg>
+    </div>
+    <div class="callback-popup-content">
+      <div class="callback-popup-header">
+        Закажите бесплатную консультацию!
+      </div>
+      <div class="auth-inputs">
+        <div class="auth-input">
+          <input type="text" class="input"
+                 [ngStyle]="{'border-color': callbackForm.get('name')?.invalid
+                 && (callbackForm.get('name')?.dirty || callbackForm.get('name')?.touched) ? 'red' : ''
+                  }"
+                 placeholder="Ваше имя" formControlName="name">
+        </div>
+        <div class="auth-input">
+          <input type="text" class="input"
+                 [ngStyle]="{'border-color': callbackForm.get('phone')?.invalid
+                 && (callbackForm.get('phone')?.dirty || callbackForm.get('phone')?.touched) ? 'red' : ''
+                  }"
+                 placeholder="Номер телефона" formControlName="phone">
+        </div>
+        <div class="auth-button">
+          <button class="button" [disabled]="callbackForm.invalid" (click)="orderCallback()">Заказать консультацию</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</ng-template>
+
+<ng-template #callback_confirmation>
+  <div class="callback-confirmation">
+    <div class="close-popup" (click)="closeDialog()">
+      <svg viewBox="0 0 14 14.2258" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14.000000" height="14.225830" fill="none" customFrame="#000000">
+        <rect id="Х" width="14.000000" height="14.000000" x="0.000000" y="0.225830" fill="rgb(255,255,255)" fill-opacity="0" />
+        <line id="Line 4" x1="0" x2="18" y1="0" y2="0" stroke="rgb(189.66,189.913,190.453)" stroke-linecap="round" stroke-width="1" transform="matrix(0.707107,0.707107,-0.707107,0.707107,0.582031,0.522217)" />
+        <line id="Line 5" x1="0" x2="18" y1="0" y2="0" stroke="rgb(189.66,189.913,190.453)" stroke-linecap="round" stroke-width="1" transform="matrix(-0.707107,0.707107,-0.707107,-0.707107,13.2771,0.501953)" />
+      </svg>
+    </div>
+    <div class="callback-confirmation-header">
+      Спасибо за вашу заявку!
+    </div>
+    <div class="callback-confirmation-description">
+      Мы свяжемся с вами при первой же возможности.
+    </div>
+    <div class="auth-button">
+      <button class="button" (click)="closeDialog()">Окей</button>
+    </div>
+  </div>
+</ng-template>

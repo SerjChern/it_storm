@@ -1,0 +1,51 @@
+@import '../../../../assets/styles/variables';
+.banner{
+  position: relative;
+  .banner-content{
+    padding-top: 100px;
+    padding-left: 80px;
+    width:702px;
+    height: 500px;
+    display: inline-block;
+    background-color: rgba(185, 213, 253, 1);
+    clip-path: path("M0 0 L702 0 A650 650 0 0 1 490 500 L0 500 Z");
+    .banner-content-header{
+      color: $heading-text-color;
+      font-family: Montserrat, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 130%;
+      letter-spacing: 40%;
+      text-align: left;
+      text-transform: uppercase;
+    }
+    .banner-content-text{
+      font-family: Lora, sans-serif;
+      color: white;
+      font-size: 50px;
+      font-weight: 400;
+      line-height: 130%;
+      margin-bottom: 40px;
+      max-width: 574px;
+    }
+    .banner-content-subtext{
+      margin-bottom: 50px;
+      color: white;
+      font-family: Montserrat, sans-serif;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 130%;
+      text-align: left;
+      max-width: 456px;
+    }
+  }
+  .banner-image{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    width: 750px;
+    height: 500px;
+    display: inline-block;
+  }
+}

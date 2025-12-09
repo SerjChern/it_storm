@@ -1,0 +1,82 @@
+@import "variables";
+.auth-form {
+  font-family: Montserrat, sans-serif;
+  .auth-title {
+    font-family: Lora, sans-serif;
+    font-size: 36px;
+    color: $heading-text-color;
+    margin-bottom: 40px;
+  }
+
+  .auth-inputs {
+    margin-bottom: 40px;
+
+    .auth-input {
+      margin-bottom: 5px;
+      width: 422px;
+    }
+
+    .auth-checkbox {
+      margin-top: 5px;
+      max-width: 422px;
+      display: flex;
+      align-items: center;
+
+      .auth-checkbox input {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        margin: 0 !important;
+        width: 16px;
+        height: 16px;
+
+        border: 2px solid rgba(7, 23, 57, 1); /* custom border */
+        border-radius: 2px;
+
+        cursor: pointer;
+        position: relative;
+      }
+
+      .auth-checkbox input:checked::after {
+        content: "";
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: rgba(7, 23, 57, 1); /* checkmark color */
+        top: 2px;
+        left: 2px;
+        border-radius: 2px;
+      }
+
+      .auth-checkbox label {
+        margin-left: 6px;
+        cursor: pointer;
+      }
+      /*label {
+        font-size: 14px;
+        line-height: 130%;
+        margin-left: 10px;
+
+      }*/
+    }
+  }
+  .auth-button {
+    margin-top: 30px;
+    button.button {
+      width: 422px;
+    }
+  }
+
+  .auth-link {
+    margin-top: 10px;
+    font-size: 16px;
+    color: $article-text-color;
+
+    a {
+      margin-left: 5px;
+      text-decoration: none;
+      color: $heading-text-color;
+    }
+  }
+}

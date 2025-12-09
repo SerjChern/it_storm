@@ -3,8 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
-};
+  production: false,
+  api: "http://localhost:3000/api/",
+  serverStaticPath: "http://localhost:3000/images/products/",
+  bannerImgPath: "/assets/images/banner/"
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

@@ -1,0 +1,120 @@
+@import "../../../assets/styles/variables";
+
+.header{
+  color: $heading-text-color;
+  font-family: Lora, sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+}
+
+.services{
+  .container{
+    .carousel-items{
+      position: relative;
+      .move-backward{
+        position: absolute;
+        top: 40%;
+        left: 2%;
+        z-index: 20;
+      }
+      .move-forward{
+        position: absolute;
+        top: 40%;
+        right: 2%;
+        z-index: 20;
+      }
+    }
+  }
+}
+
+.our-services{
+  margin-bottom: 120px;
+  .container{
+    .our-services-header{
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    .our-services-content{
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.about{
+  margin-bottom: 120px;
+  .container{
+    .about-content{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .about-content-image{
+        width: 460px;
+        height: 453px;
+        background-image: url("/assets/images/advantages/adv.png");
+        border-radius: 5px;
+      }
+      .about-content-description{
+        width: 719px;
+        font-family: Montserrat, sans-serif;
+        color: $article-text-color;
+        font-size: 14px;
+        line-height: 130%;
+        span {
+          font-weight: 500;
+        }
+        .about-content-description-header{
+          line-height: 130%;
+          margin-bottom: 20px;
+        }
+        .about-content-description-text{
+          max-width: 633px;
+          margin-bottom: 40px;
+        }
+        .about-content-description-advantages{
+          .about-content-description-advantages-header{
+            color: $heading-text-color;
+            font-family: Lora, sans-serif;
+            font-size: 26px;
+            font-weight: 400;
+            line-height: 130%;
+            margin-bottom: 20px;
+          }
+          .about-content-description-advantages-advantages{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-column-gap: 70px;
+            grid-row-gap: 20px;
+            .advantage-item{
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              .advantage-number{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: rgba(185, 213, 253, 1);;
+                margin-right: 20px;
+
+                color: $heading-text-color;
+                font-family: Lora, sans-serif;
+                font-size: 50px;
+                font-weight: 500;
+                line-height: 40%;
+
+                display: flex;
+                justify-content: center;
+              }
+              .advantage-description{
+                width: 250px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+

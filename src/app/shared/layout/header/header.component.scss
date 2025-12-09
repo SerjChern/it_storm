@@ -1,0 +1,53 @@
+@import "../../../../assets/styles/_variables";
+header.header{
+  padding: 40px 0;
+  .container{
+    .header-content{
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .header-menu{
+        /*margin-left: 100px;*/
+        nav ul{
+          margin: 0;
+          padding: 0;
+          display: flex;
+          li {
+            margin-right: 30px;
+            list-style: none;
+            border-bottom: 1px solid transparent;
+            &:hover {
+              border-bottom: $article-text-color;
+            }
+
+            a {
+              font-size: 16px;
+              color: $article-text-color;
+              cursor: pointer;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+      .header-phone{
+        color: $heading-text-color;
+        font-size: 16px;
+        text-decoration: none;
+       /* margin-left: 178px;*/
+      }
+      .header-actions{
+        /*margin-left: 141px;*/
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        .action-text{
+          color: $article-text-color;
+          font-size: 16px;
+          margin-left: 9px;
+        }
+      }
+    }
+  }
+}

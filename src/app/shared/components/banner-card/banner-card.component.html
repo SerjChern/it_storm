@@ -1,0 +1,17 @@
+<div class="banner">
+  <div class="banner-content">
+    <div class="banner-content-header">
+      Предложение месяца
+    </div>
+    <div class="banner-content-text" [innerHTML]="banner.text">
+    </div>
+    <div class="banner-content-subtext" *ngIf="banner.subText">
+      {{banner.subText}}
+    </div>
+    <div class="auth-button">
+      <button class="button" (click)="openCallBackForm()">Подробнее</button>
+    </div>
+  </div>
+  <div class="banner-image" style="background-image: url({{bannerImgPath + banner.image}})"></div>
+
+</div>

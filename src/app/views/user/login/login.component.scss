@@ -1,0 +1,19 @@
+@import "../../../../assets/styles/auth-form";
+
+.login .container {
+  margin-top: 106px;
+  margin-bottom: 92px;
+  display: flex;
+  align-items: center;
+
+  .page-image {
+    margin-left: 185px;
+  }
+  .auth-form{
+    .auth-inputs{
+      .auth-checkbox{
+        align-items: normal !important;
+      }
+    }
+  }
+}

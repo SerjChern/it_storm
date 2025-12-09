@@ -1,0 +1,31 @@
+@import "../../../../assets/styles/_variables";
+.agreement{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: $article-text-color;
+  margin-bottom: 48px;
+  .container{
+    .agreement-confidential{
+      .heading{
+        font-family: 'Lora', sans-serif;
+        color: $heading-text-color;
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      .h1{
+        font-size: 24px;
+      }
+    }
+    .agreement-statements{
+      .heading{
+        font-family: 'Lora', sans-serif;
+        color: $heading-text-color;
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      .heading-user-agreement{
+        margin: 24px 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,149 @@
+@import "variables";
+.container{
+  max-width: $container-width;
+  margin: 0 auto;
+}
+
+.input, .cetegorie-select {
+  box-sizing: border-box;
+  width: 422px;
+  padding: 17px 20px;
+  border: 2px solid $heading-text-color;
+  border-radius: 3px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(168, 171, 167, 1);
+  background: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+
+
+.button{
+  text-align: center;
+  color: white;
+  padding: 15px 33px;
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  background: rgba(112, 159, 220, 1);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+
+  &.button-footer{
+    padding: 10px 20px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+}
+
+input[type="checkbox"] {
+  margin: 3px 10px 0 0 !important;
+  width: 14px;
+  height: 14px;
+
+  border: 2px solid rgba(7, 23, 57, 1);
+  border-radius: 2px;
+}
+
+.banner-content-text{
+  span{
+    color: $heading-text-color;
+  }
+}
+
+.owl-theme .owl-nav.disabled+.owl-dots{
+  position: absolute;
+  top:75%;
+  left: 50%;
+  .owl-dot{
+    span{
+      width: 10px !important;
+      height: 10px !important;
+      background-color: transparent !important;
+      box-sizing: border-box;
+      border: 1px solid white;
+      border-radius: 50% !important;
+    }
+    &.active{
+      span{
+        width: 10px !important;
+        height: 10px !important;
+        background-color: white !important;
+        border-radius: 50% !important;
+      }
+
+    }
+  }
+
+}
+
+.callback-popup{
+  position: relative;
+  padding: 71px 131px;
+  .close-popup{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+  .callback-popup-content{
+    max-width: 422px;
+    .callback-popup-header{
+      color: $heading-text-color;
+      font-family: Lora, sans-serif;
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 130%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .auth-inputs{
+      .auth-input{
+        margin-bottom: 5px;
+      }
+      .button{
+        margin-top: 15px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.callback-confirmation{
+  position: relative;
+  padding: 163px 142px;
+  .close-popup{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+  }
+  .callback-confirmation-header{
+    color: $heading-text-color;
+    font-family: Lora, sans-serif;
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 130%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .callback-confirmation-description{
+    color: rgba(30, 26, 43, 1);
+    font-family: Montserrat, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 130%;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .auth-button{
+    text-align: center;
+  }
+}
+
+
