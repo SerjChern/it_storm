@@ -1,0 +1,203 @@
+@import "../../../../assets/styles/_variables";
+@import "../../../../assets/styles/_global";
+
+.header{
+  color: $heading-text-color;
+  font-family: Lora, sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+}
+
+.article{
+  .container{
+    margin-top: 80px;
+    .breadcrumps {
+      color: $heading-text-color;
+      font-family: Montserrat, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 60px;
+
+      a {
+        color: rgba(185, 213, 253, 1);
+      }
+    }
+    .article-head{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 60px;
+        .article-head-text{
+          width: 607px;
+          .header{
+            margin-bottom: 40px;
+            line-height: 130%;
+          }
+          .article-head-text-description{
+            color: $heading-text-color;
+            font-family: Montserrat, sans-serif;
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 130%;
+          }
+        }
+        .article-head-picture{
+          width: 527px;
+          height: 320px;
+          min-width: 527px;
+          background-size: cover;
+        }
+      }
+    .article-content{
+      display: flex;
+      justify-content: space-between;
+      .article{
+        margin-bottom: 60px;
+        ::ng-deep h3{
+          color: $heading-text-color;
+          font-family: Montserrat, sans-serif;
+          font-size: 20px;
+          font-weight: 500;
+          line-height: 130%;
+          margin-top: 40px;
+        }
+        ::ng-deep p{
+          color: $article-text-color;
+          font-family: Montserrat, sans-serif;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 130%;
+        }
+      }
+      .related-articles{
+        margin-left: 130px;
+        .related-articles-header{
+          color: $heading-text-color;
+          font-family: Lora, sans-serif;
+          font-size: 26px;
+          font-weight: 400;
+          margin-bottom: 20px;
+        }
+        .related-articles-items{
+          .related-articles-item{
+            margin-bottom: 60px;
+            &:last-child{
+              margin-bottom: 0;
+            }
+          }
+        }
+
+      }
+    }
+    .social-networks{
+      display: flex;
+      margin-bottom: 60px;
+      .social-networks-description {
+        color: $heading-text-color;
+        font-family: Montserrat, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        margin-right: 20px;
+      }
+      .social-network-icons{
+        .icon{
+          margin-right: 13px;
+        }
+      }
+    }
+    .comments{
+      .comments-login{
+        margin-top: 20px;
+        margin-bottom: 60px;
+        color: $article-text-color;
+        font-family: Montserrat, sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        a{
+          color: $heading-text-color;
+        }
+      }
+      .leave-comment{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 60px;
+        .comment{
+          box-sizing: border-box;
+          border: 1.5px solid $heading-text-color;
+          border-radius: 3px;
+          width: 818px;
+          height: 248px;
+          resize: none;
+          margin-bottom: 20px;
+        }
+        .button{
+          max-width: 422px;
+        }
+      }
+      .comments-comments{
+        .comments-item{
+          max-width: 854px;
+          margin-bottom: 40px;
+          .comment-item-header{
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            .userpic{
+              width: 56px;
+              height: 56px;
+              border-radius: 50%;
+              box-sizing: border-box;
+              border: 2px solid rgba(112, 159, 220, 1);
+              background: rgb(191, 212, 250);
+              position: relative;
+              overflow: hidden;
+              svg{
+                position: absolute;
+                top: 6px;
+                left: 4px;
+              }
+            }
+            .user-info{
+              margin-left: 26px;
+              .user-name{
+                color: rgba(112, 159, 220, 1);
+                font-family: Montserrat, sans-serif;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 130%;
+                margin-bottom: 10px;
+              }
+              .date{
+                color: rgba(190, 190, 190, 1);
+                font-family: Montserrat, sans-serif;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 130%;
+              }
+            }
+          }
+          .comment-item-comment{
+            color: rgba(7, 23, 57, 1);
+            font-family: Montserrat, sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 140%;
+            margin-bottom: 40px;
+          }
+          .comment-item-actions{
+            display: flex;
+            .comment-item-actions-item{
+              display: flex;
+              align-items: center;
+              margin-right: 15px;
+              cursor: pointer;
+            }
+          }
+        }
+
+      }
+    }
+
+
+  }
+}

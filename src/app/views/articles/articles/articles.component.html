@@ -1,0 +1,98 @@
+<div class="articles">
+  <div class="container">
+    <div class="articles-header header">
+      Блог
+    </div>
+    <div class="filters">
+      <div class="applied-filters">
+        <div class="applied-filter" *ngFor="let appliedCategory of appliedCategories"
+             (click)="removeFilter(appliedCategory.url)">
+          <span>{{appliedCategory.name}}</span>
+          <svg  width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line x1="1" y1="1" x2="13" y2="13"
+                  stroke="rgba(112, 159, 220, 1)"
+                  stroke-width="2"
+                  stroke-linecap="round" />
+            <line x1="13" y1="1" x2="1" y2="13"
+                  stroke="rgba(112, 159, 220, 1)"
+                  stroke-width="2"
+                  stroke-linecap="round" />
+          </svg>
+
+        </div>
+      </div>
+      <div class="filters-catalog" [class.open]="sortingOpen" (click)="toggleSorting()">
+        <div class="filters-catalog-head">
+          <span>Фильтр</span>
+          <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20.000000" height="20.000000" fill="none" customFrame="#000000">
+            <rect id="Arrow" width="20.000000" height="20.000000" x="0.000000" y="0.000000" fill="rgb(255,255,255)" fill-opacity="0" />
+            <path id="Vector" d="M10 14C9.41668 14 8.83335 13.775 8.39168 13.3334L2.95835 7.90003C2.71668 7.65837 2.71668 7.25837 2.95835 7.0167C3.20002 6.77503 3.60002 6.77503 3.84168 7.0167L9.27502 12.45C9.67502 12.85 10.325 12.85 10.725 12.45L16.1583 7.0167C16.4 6.77503 16.8 6.77503 17.0417 7.0167C17.2833 7.25837 17.2833 7.65837 17.0417 7.90003L11.6083 13.3334C11.1667 13.775 10.5834 14 10 14Z" fill="rgb(7,23,57)" fill-rule="nonzero" />
+            <path id="Vector" opacity="0" />
+          </svg>
+        </div>
+        <div class="filters-catalog-body">
+          <div class="filters-catalog-item"
+               (click)="sort(category.url)"
+               [class.active]="parameters.categories.includes(category.url)"
+               *ngFor="let category of categories"><span>{{category.name}}</span>
+            <svg *ngIf="!parameters.categories?.includes(category.url)" viewBox="0 0 14 31" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14.000000" height="31.000000" fill="none" customFrame="#000000">
+              <path id="+" d="M12.12 15.008L7.656 15.008L7.656 10.616L6.144 10.616L6.144 15.008L1.68 15.008L1.68 16.424L6.144 16.424L6.144 20.792L7.656 20.792L7.656 16.424L12.12 16.424L12.12 15.008Z" fill="rgb(189.66,189.913,190.453)" fill-rule="nonzero" />
+            </svg>
+            <svg *ngIf="parameters.categories?.includes(category.url)" viewBox="0 0 10 31" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10.000000" height="31.000000" fill="none" customFrame="#000000">
+              <path id="+" d="M1.44 18.344L7.728 18.344L7.728 16.856L1.44 16.856L1.44 18.344Z" fill="rgb(7,23,57)" fill-rule="nonzero" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="articles-content">
+      <article-card *ngFor="let popularArticle of articles" [article]="popularArticle"></article-card>
+    </div>
+    <div class="pagination" >
+      <div class="pagination-arrow" (click)="openPrevPage()"
+           [class.disabled]="parameters.page ? parameters.page === 1 : true">
+        <svg
+          width="10"
+          height="18.6667"
+          viewBox="0 0 10 18.6667"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 1.5 L2 9.3333 L8 17.1667"
+            fill="none"
+            stroke="rgba(112, 159, 220, 1)"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+
+      </div>
+      <div class="pagination-pages">
+        <a class="pagination-page" (click)="openPage(page)"
+           [class.active]="this.parameters.page ? this.parameters.page === page : (page === 1)"
+           *ngFor="let page of pages">{{page}}</a>
+      </div>
+      <div class="pagination-arrow" (click)="openNextPage()"
+           [class.disabled]="parameters.page ? parameters.page === pages.length : false">
+        <svg
+          width="10"
+          height="18.6667"
+          viewBox="0 0 10 18.6667"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M2 1.5 L8 9.3333 L2 17.1667"
+            fill="none"
+            stroke="rgba(112, 159, 220, 1)"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+
+      </div>
+    </div>
+  </div>
+</div>
+

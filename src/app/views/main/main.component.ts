@@ -6,6 +6,9 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {AuthService} from "../../core/auth.service";
 import {CategoriesType} from "../../../types/categories.type";
 import {ServiceType} from "../../../types/service.type";
+import {ArticlesService} from "../../core/articles.service";
+import {PopularArticleType} from "../../../types/popular-article.type";
+import {FeedbackType} from "../../../types/feedback.type";
 
 @Component({
   selector: 'app-main',
@@ -35,6 +38,31 @@ export class MainComponent implements OnInit {
       },
       940: {
         items: 1
+      }
+    },
+    nav: false
+  };
+  customOptionsFeedback: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    margin: 15,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 3
       }
     },
     nav: false
@@ -84,6 +112,24 @@ export class MainComponent implements OnInit {
       image: 'service-4.png'
     },
   ]
+  feedbacks: FeedbackType[] = [
+    {
+      username: 'Станислав',
+      text: 'Спасибо огромное АйтиШторму за прекрасный блог с полезными статьями! Именно они и побудили меня углубиться в тему SMM и начать свою карьеру.',
+      avatar: 'stanislav.png'
+    },
+    {
+      username: 'Алёна',
+      text: 'Обратилась в АйтиШторм за помощью копирайтера. Ни разу ещё не пожалела! Ребята действительно вкладывают душу в то, что делают, и каждый текст, который я получаю, с нетерпением хочется выложить в сеть.',
+      avatar: 'alena.png'
+    },
+    {
+      username: 'Мария',
+      text: 'Команда АйтиШторма за такой короткий промежуток времени сделала невозможное: от простой фирмы по услуге продвижения выросла в мощный блог о важности личного бренда. Класс!',
+      avatar: 'maria.png'
+    }
+  ]
+  popularArticles: PopularArticleType[] = []
   @ViewChild('callback_popup')callBack!: TemplateRef<ElementRef>;
   @ViewChild('callback_confirmation')callBackConf!: TemplateRef<ElementRef>;
 
@@ -100,7 +146,8 @@ export class MainComponent implements OnInit {
   categories: CategoriesType[] = [];
   constructor(private dialog: MatDialog,
               private fb: FormBuilder,
-              private authService: AuthService,) { }
+              private authService: AuthService,
+              private articlesService: ArticlesService,) { }
 
 
 
@@ -109,9 +156,12 @@ export class MainComponent implements OnInit {
       .subscribe((data: CategoriesType[])=>{
         if (data){
           this.categories = data;
-          console.log(this.categories);
         }
       });
+
+    this.articlesService.getPopularArticles().subscribe((data: PopularArticleType[])=>{
+      this.popularArticles = data;
+    })
   }
 
   openCallBackForm(){

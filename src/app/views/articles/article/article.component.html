@@ -1,0 +1,152 @@
+<div class="article">
+  <div class="container">
+    <div class="breadcrumps">
+      <a >breadcrumps / </a>crump
+    </div>
+    <div class="article-head">
+      <div class="article-head-text">
+        <div class="header">
+          {{ article!.title }}
+        </div>
+        <div class="article-head-text-description">
+          {{article!.description}}
+        </div>
+      </div>
+      <div class="article-head-picture" style="background-image: url({{serverStaticPath + article!.image}})">
+
+      </div>
+    </div>
+      <div class="article-content">
+        <div class="article" [innerHTML]="article!.text">
+        </div>
+        <div class="related-articles">
+          <div class="related-articles-header">
+            Читайте так же:
+          </div>
+          <div class="related-articles-items">
+            <div class="related-articles-item" *ngFor="let popularArticle of relatedArticles">
+              <article-card [article]="popularArticle"></article-card>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="social-networks">
+        <div class="social-networks-description">
+          Понравилась статья? Поделитесь ею в своих социальных сетях!
+        </div>
+        <div class="social-network-icons">
+          <a href="" class="icon">
+            <svg viewBox="0 0 19.9998 19.9997" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19.999756" height="19.999695" fill="none">
+              <rect id="VK" width="19.999676" height="19.999676" x="0.000000" y="0.000000" fill="rgb(255,255,255)" fill-opacity="0" />
+              <path id="Vector" d="M3.82296 0.178223C1.82104 0.178223 0.178345 1.82091 0.178345 3.82283L0.178345 16.1761C0.178345 18.1781 1.82104 19.8208 3.82296 19.8208L16.1763 19.8208C18.1782 19.8208 19.8209 18.1781 19.8209 16.1761L19.8209 3.82283C19.8209 1.82091 18.1782 0.178223 16.1763 0.178223L3.82296 0.178223ZM3.82296 1.96391L16.1763 1.96391C17.2121 1.96391 18.0352 2.787 18.0352 3.82283L18.0352 16.1761C18.0352 17.212 17.2121 18.0351 16.1763 18.0351L3.82296 18.0351C2.78712 18.0351 1.96403 17.212 1.96403 16.1761L1.96403 3.82283C1.96403 2.787 2.78712 1.96391 3.82296 1.96391ZM9.7485 6.63389C9.09282 6.62692 8.53479 6.63389 8.2209 6.78735C8.01164 6.88849 7.85121 7.11868 7.94886 7.12914C8.07093 7.14658 8.34646 7.20587 8.49294 7.40467C8.68128 7.65927 8.6743 8.23473 8.6743 8.23473C8.6743 8.23473 8.77893 9.81813 8.4197 10.0169C8.17208 10.1529 7.83377 9.87742 7.10136 8.61837C6.72818 7.96967 6.44568 7.2547 6.44568 7.2547C6.44568 7.2547 6.39337 7.12217 6.29571 7.05241C6.17713 6.96522 6.01321 6.93732 6.01321 6.93732L4.26589 6.94778C4.26589 6.94778 4.00431 6.95825 3.91015 7.06985C3.82296 7.17448 3.90317 7.38025 3.90317 7.38025C3.90317 7.38025 5.27034 10.5784 6.81886 12.1897C8.23834 13.6685 9.84964 13.5709 9.84964 13.5709L10.5821 13.5709C10.5821 13.5709 10.8018 13.5464 10.9134 13.4279C11.018 13.3163 11.0145 13.107 11.0145 13.107C11.0145 13.107 11.0006 12.127 11.454 11.9805C11.9039 11.841 12.4759 12.9291 13.0862 13.3476C13.5501 13.665 13.9023 13.5953 13.9023 13.5953L15.5345 13.5709C15.5345 13.5709 16.3855 13.5185 15.981 12.8454C15.9496 12.7931 15.7473 12.3502 14.7707 11.4434C13.7454 10.4947 13.8814 10.6482 15.116 9.00551C15.8659 8.00455 16.1658 7.3942 16.0716 7.12914C15.981 6.88152 15.4299 6.94778 15.4299 6.94778L13.5919 6.95825C13.5919 6.95825 13.4559 6.94081 13.3547 7.0001C13.2571 7.05939 13.1943 7.19889 13.1943 7.19889C13.1943 7.19889 12.9014 7.97316 12.5142 8.63233C11.6981 10.0204 11.3668 10.0971 11.2342 10.01C10.9238 9.80767 11.0006 9.20082 11.0006 8.77183C11.0006 7.42211 11.2063 6.86408 10.603 6.7176C10.4042 6.66877 10.2577 6.63738 9.7485 6.63389Z" fill="rgb(112,159,220)" fill-rule="nonzero" />
+            </svg>
+          </a>
+          <a href="" class="icon">
+            <svg viewBox="0 0 20.0002 20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20.000244" height="20.000000" fill="none">
+            <rect id="Facebook" width="20.000204" height="20.000000" x="0.000000" y="0.000000" fill="rgb(255,255,255)" fill-opacity="0" />
+            <path id="Vector" d="M9.99984 0.000488281C4.48695 0.000488281 0 4.48744 0 10.0003C0 15.5132 4.48695 20.0002 9.99984 20.0002C15.5127 20.0002 19.9997 15.5132 19.9997 10.0003C19.9997 4.48744 15.5127 0.000488281 9.99984 0.000488281ZM9.99984 1.66713C14.612 1.66713 18.333 5.38816 18.333 10.0003C18.333 14.1897 15.2595 17.6346 11.2401 18.2326L11.2401 12.4303L13.6131 12.4303L13.9858 10.0199L11.2401 10.0199L11.2401 8.70315C11.2401 7.70233 11.5689 6.81353 12.5047 6.81353L14.0086 6.81353L14.0086 4.7107C13.7444 4.67487 13.1854 4.59677 12.1287 4.59677C9.92208 4.59677 8.62942 5.76174 8.62942 8.41669L8.62942 10.0199L6.36057 10.0199L6.36057 12.4303L8.62942 12.4303L8.62942 18.2115C4.67397 17.5591 1.66664 14.1445 1.66664 10.0003C1.66664 5.38816 5.38767 1.66713 9.99984 1.66713Z" fill="rgb(112,159,220)" fill-rule="nonzero" />
+            </svg>
+          </a>
+          <a href="" class="icon">
+            <svg viewBox="0 0 19.9998 19.9997" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="19.999756" height="19.999695" fill="none">
+              <rect id="Instagram" width="19.999676" height="19.999676" x="0.000000" y="0.000000" fill="rgb(255,255,255)" fill-opacity="0" />
+              <path id="Vector" d="M5.95429 0.178223C2.784 0.178223 0.178711 2.78002 0.178711 5.9538L0.178711 14.0452C0.178711 17.2155 2.78051 19.8208 5.95429 19.8208L14.0457 19.8208C17.216 19.8208 19.8212 17.219 19.8212 14.0452L19.8212 5.9538C19.8212 2.78351 17.2194 0.178223 14.0457 0.178223L5.95429 0.178223ZM5.95429 1.96391L14.0457 1.96391C16.2534 1.96391 18.0356 3.74611 18.0356 5.9538L18.0356 14.0452C18.0356 16.2529 16.2534 18.0351 14.0457 18.0351L5.95429 18.0351C3.74659 18.0351 1.9644 16.2529 1.9644 14.0452L1.9644 5.9538C1.9644 3.74611 3.74659 1.96391 5.95429 1.96391ZM15.2733 3.917C14.8234 3.917 14.4642 4.27623 14.4642 4.72614C14.4642 5.17605 14.8234 5.53528 15.2733 5.53528C15.7232 5.53528 16.0825 5.17605 16.0825 4.72614C16.0825 4.27623 15.7232 3.917 15.2733 3.917ZM9.99998 4.64244C7.0529 4.64244 4.64292 7.05241 4.64292 9.99949C4.64292 12.9466 7.0529 15.3565 9.99998 15.3565C12.9471 15.3565 15.357 12.9466 15.357 9.99949C15.357 7.05241 12.9471 4.64244 9.99998 4.64244ZM9.99998 6.42812C11.9845 6.42812 13.5713 8.01501 13.5713 9.99949C13.5713 11.984 11.9845 13.5709 9.99998 13.5709C8.0155 13.5709 6.42861 11.984 6.42861 9.99949C6.42861 8.01501 8.0155 6.42812 9.99998 6.42812Z" fill="rgb(112,159,220)" fill-rule="nonzero" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="comments">
+        <div class="comments-header">
+          <div class="header">
+            Комментарии к статье
+          </div>
+          <div class="comments-login" *ngIf="!isLogged">
+            Чтобы оставить комментарии, <a routerLink="/login">войдите</a> или <a routerLink="/signup">зарегистрируйтесь</a>
+          </div>
+          <div class="comments-login" *ngIf="isLogged && article!.commentsCount === 0">
+            Будьте первым, кто оставит свой комментарий к статье!
+          </div>
+        </div>
+
+        <div class="leave-comment" [formGroup]="commentForm" *ngIf="isLogged">
+          <textarea class="comment" name="comment" placeholder="Напишите ваш комментарий к статье..." rows="4"
+                    formControlName="comment">
+          </textarea>
+          <button class="button" (click)="submitComment()">Опубликовать комментарий</button>
+        </div>
+
+        <div class="comments-comments" *ngIf="article!.commentsCount != 0">
+          <div class="comments-item " *ngFor="let comments of article!.comments">
+            <div class="comment-item-header">
+              <div class="userpic">
+                <svg viewBox="0 0 43.9401 45.0001" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43.940063" height="45.000122" fill="none" customFrame="#000000">
+                  <g id="User">
+                    <circle id="Ellipse 29" cx="21.9702415" cy="12.7368422" r="11.7368422" stroke="rgb(112,159,220)" stroke-width="2.000000" />
+                    <path id="Subtract" d="M41.9371 45.0001C41.3373 34.4932 32.6271 26.158 21.9701 26.158C11.313 26.158 2.60277 34.4932 2.00301 45.0001L0 45.0001C0.60212 33.388 10.2082 24.158 21.9701 24.158C33.7319 24.158 43.338 33.388 43.9401 45.0001L41.9371 45.0001Z" fill="rgb(112,159,220)" fill-rule="evenodd" />
+                  </g>
+                </svg>
+              </div>
+              <div class="user-info">
+                <div class="user-name">
+                  {{comments.user.name}}
+                </div>
+                <div class="date">
+                  {{comments.date}}
+                </div>
+              </div>
+            </div>
+            <div class="comment-item-comment">
+              {{comments.text}}
+            </div>
+            <div class="comment-item-actions">
+              <div class="comment-item-actions-item">
+                <div class="amount">
+                  {{comments.likesCount}}
+                </div>
+                <div class="action"  (click)="likeComment(comments.id); $event.stopPropagation()">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.000000" height="24.000000" fill="none" customFrame="#000000">
+                    <g id="Icon">
+                      <path id="Vector" d="M7.47998 18.35L10.58 20.75C10.98 21.15 11.88 21.35 12.48 21.35L16.28 21.35C17.48 21.35 18.78 20.45 19.08 19.25L21.48 11.95C21.98 10.55 21.08 9.34997 19.58 9.34997L15.58 9.34997C14.98 9.34997 14.48 8.84997 14.58 8.14997L15.08 4.94997C15.28 4.04997 14.68 3.04997 13.78 2.74997C12.98 2.44997 11.98 2.84997 11.58 3.44997L7.47998 9.54997" fill-rule="nonzero" stroke="rgb(7,23,57)" stroke-width="1.500000" />
+                      <path id="Vector" d="M2.37988 8.5499C2.37988 7.1499 2.97988 6.6499 4.37988 6.6499L5.37988 6.6499C6.77988 6.6499 7.37988 7.1499 7.37988 8.5499L7.37988 18.3499C7.37988 19.7499 6.77988 20.2499 5.37988 20.2499L4.37988 20.2499C2.97988 20.2499 2.37988 19.7499 2.37988 18.3499L2.37988 8.5499Z" fill-rule="nonzero" stroke="rgb(7,23,57)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.500000" />
+                      <path id="Vector" opacity="0" />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div class="comment-item-actions-item">
+                <div class="amount">
+                  {{comments.dislikesCount}}
+                </div>
+                <div class="action" (click)="dislikeComment(comments.id); $event.stopPropagation()">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.000000" height="24.000000" fill="none" customFrame="#000000">
+                    <g id="Icon">
+                      <path id="Vector" d="M16.5197 5.6499L13.4197 3.2499C13.0197 2.8499 12.1197 2.6499 11.5197 2.6499L7.71973 2.6499C6.51973 2.6499 5.21973 3.5499 4.91973 4.7499L2.51973 12.0499C2.01973 13.4499 2.91973 14.6499 4.41973 14.6499L8.41973 14.6499C9.01973 14.6499 9.51973 15.1499 9.41973 15.8499L8.91973 19.0499C8.71973 19.9499 9.31973 20.9499 10.2197 21.2499C11.0197 21.5499 12.0197 21.1499 12.4197 20.5499L16.5197 14.4499" fill-rule="nonzero" stroke="rgb(7,23,57)" stroke-width="1.500000" />
+                      <path id="Vector" d="M21.6201 15.45C21.6201 16.85 21.0201 17.35 19.6201 17.35L18.6201 17.35C17.2201 17.35 16.6201 16.85 16.6201 15.45L16.6201 5.65C16.6201 4.25 17.2201 3.75 18.6201 3.75L19.6201 3.75C21.0201 3.75 21.6201 4.25 21.6201 5.65L21.6201 15.45Z" fill-rule="nonzero" stroke="rgb(7,23,57)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.500000" />
+                      <path id="Vector" opacity="0" />
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <div class="comment-item-actions-item" (click)="violateComment(comments.id); $event.stopPropagation()">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.000000" height="24.000000" fill="none" customFrame="#000000">
+                  <rect id="Spam" width="24.000000" height="24.000000" x="0.000000" y="0.000000" />
+                  <path id="Vector" d="M22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12Z" fill-rule="nonzero" stroke="rgb(7,23,57)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.500000" />
+                  <path id="Vector" d="M0 0L5 0" stroke="rgb(7,23,57)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.500000" transform="matrix(0,1,-1,0,12,8)" />
+                  <path id="Vector" d="M11.9946 16L12.0036 16" fill-rule="evenodd" stroke="rgb(7,23,57)" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.500000" />
+                  <path id="Vector" opacity="0" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>

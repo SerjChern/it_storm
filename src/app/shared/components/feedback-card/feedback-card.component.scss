@@ -1,0 +1,33 @@
+@import '../../../../assets/styles/variables';
+.feedback-card{
+  width: 396px;
+  height: 267px;
+  padding: 30px;
+  box-sizing: border-box;
+  border: 2px solid $heading-text-color;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  .feedback-header{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    .avatar{
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 26px;
+    }
+    .user-name{
+      color: $heading-text-color;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+  .feedback-text{
+    max-width: 336px;
+    color: $article-text-color;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 140%;
+  }
+}

@@ -8,6 +8,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
 import { BannerCardComponent } from './components/banner-card/banner-card.component';
 import { ServiceCardComponent } from './components/service-card/service-card.component';
+import { ArticleCardComponent } from './components/article-card/article-card.component';
+import { FeedbackCardComponent } from './components/feedback-card/feedback-card.component';
 
 
 
@@ -17,11 +19,15 @@ import { ServiceCardComponent } from './components/service-card/service-card.com
     HeaderComponent,
     FooterComponent,
     BannerCardComponent,
-    ServiceCardComponent
+    ServiceCardComponent,
+    ArticleCardComponent,
+    FeedbackCardComponent,
   ],
   exports: [
     BannerCardComponent,
-    ServiceCardComponent
+    ServiceCardComponent,
+    ArticleCardComponent,
+    FeedbackCardComponent
   ],
   imports: [
     CommonModule,

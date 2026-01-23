@@ -1,0 +1,18 @@
+<div class="article-card">
+  <div class="article-card-image" style="background-image: url({{serverStaticPath + article.image}})">
+    <div class="article-categorie">
+      {{article.category}}
+    </div>
+  </div>
+  <div class="article-card-header">
+    {{article.title}}
+  </div>
+  <div class="article-card-content">
+    <div class="article-card-content-text">
+      {{article.description}}
+    </div>
+    <div class="article-card-actions">
+      <a (click)="openArticle(article.url)">Читать дальше...</a>
+    </div>
+  </div>
+</div>
