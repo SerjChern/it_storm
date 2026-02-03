@@ -91,25 +91,29 @@ export class MainComponent implements OnInit {
       header: 'Создание сайтов',
       text: 'В краткие сроки мы создадим качественный и самое главное продающий сайт для продвижения Вашего бизнеса!',
       price: '7500',
-      image: 'seervice-1.png'
+      image: 'seervice-1.png',
+      category: 'Дизайн'
     },
     {
       header: 'Продвижение',
       text: 'Вам нужен качественный SMM-специалист или грамотный таргетолог? Мы готовы оказать Вам услугу “Продвижения” на наивысшем уровне!',
       price: '3500',
-      image: 'service-2.png'
+      image: 'service-2.png',
+      category: 'SMM'
     },
     {
       header: 'Реклама',
       text: 'Без рекламы не может обойтись ни один бизнес или специалист. Обращаясь к нам, мы гарантируем быстрый прирост клиентов за счёт правильно настроенной рекламы.',
       price: '1000',
-      image: 'service-3.png'
+      image: 'service-3.png',
+      category: 'Таргет'
     },
     {
       header: 'Копирайтинг',
       text: 'В краткие сроки мы создадим качественный и самое главное продающий сайт для продвижения Вашего бизнеса!',
       price: '750',
-      image: 'service-4.png'
+      image: 'service-4.png',
+      category: 'Копирайтинг'
     },
   ]
   feedbacks: FeedbackType[] = [
@@ -139,6 +143,7 @@ export class MainComponent implements OnInit {
   protected submitRequestError: boolean = false;
 
   callbackForm = this.fb.group({
+    category: [''],
     name: ['', [Validators.required]],
     phone: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
   });
@@ -164,8 +169,11 @@ export class MainComponent implements OnInit {
     })
   }
 
-  openCallBackForm(){
+  openCallBackForm(categoryName: string){
     this.dialogRefCallBack = this.dialog.open(this.callBack);
+    this.callbackForm.patchValue({
+      category: categoryName
+    });
     this.dialogRefCallBack!.backdropClick()
       .subscribe(() => {
       });

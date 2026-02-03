@@ -3,6 +3,7 @@ header.header{
   padding: 40px 0;
   .container{
     .header-content{
+      position: relative;
       font-family: 'Montserrat', sans-serif;
       font-weight: 500;
       display: flex;
@@ -20,6 +21,7 @@ header.header{
             border-bottom: 1px solid transparent;
             &:hover {
               border-bottom: $article-text-color;
+              opacity: 0.7;
             }
 
             a {
@@ -35,17 +37,44 @@ header.header{
         color: $heading-text-color;
         font-size: 16px;
         text-decoration: none;
-       /* margin-left: 178px;*/
+        &:hover{
+          opacity: 0.7;
+        }
       }
       .header-actions{
-        /*margin-left: 141px;*/
         display: flex;
         align-items: center;
         cursor: pointer;
+        text-decoration: none;
         .action-text{
           color: $article-text-color;
           font-size: 16px;
           margin-left: 9px;
+
+        }
+        &:hover{
+          opacity: 0.7;
+        }
+      }
+      .header-logout{
+        display: none;
+        position: absolute;
+        z-index: 10;
+        top: 45px;
+        right: 0;
+        border-radius: 4px;
+        box-sizing: border-box;
+        background: $heading-text-color;
+        min-width: 152px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        text-align: center;
+        cursor: pointer;
+        &.active{
+          display: block;
+        }
+        .logout-button{
+          font-size: 16px;
         }
       }
     }

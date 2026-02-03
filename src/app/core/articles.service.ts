@@ -6,31 +6,30 @@ import {environment} from "../../environments/environment";
 import {ParamsType} from "../../types/params.type";
 import {ArticleType} from "../../types/article.type";
 import {ResponseType} from "../../types/response.type";
+import {CommentsType} from "../../types/comments.type";
+import {DefaultResponseType} from "../../types/default-response.type";
+import {CommentsStateType} from "../../types/comments-state.type";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticlesService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private readonly http: HttpClient) { }
 
-  getAllArticles(): Observable<{count: number, pages: number, items: PopularArticleType[]}> {
-    return this.http.get<{count: number, pages: number, items: PopularArticleType[]}>(environment.api + 'articles');
-  }
-
-  getPopularArticles(): Observable<PopularArticleType[]> {
+  public getPopularArticles(): Observable<PopularArticleType[]> {
     return this.http.get<PopularArticleType[]>(environment.api + 'articles/top');
   }
 
-  getRelatedArticles(url: string): Observable<PopularArticleType[]> {
+  public getRelatedArticles(url: string): Observable<PopularArticleType[]> {
     return this.http.get<PopularArticleType[]>(environment.api + 'articles/related/' + url);
   }
 
-  getArticle(url: string): Observable<ArticleType> {
+  public getArticle(url: string): Observable<ArticleType> {
     return this.http.get<ArticleType>(environment.api + 'articles/' + url);
   }
 
-  getArticles(params: ParamsType) {
+  public getArticles(params: ParamsType) {
     let httpParams = new HttpParams();
 
     if (params.page) {
@@ -48,12 +47,25 @@ export class ArticlesService {
     );
   }
 
-  postComment(comment: string, articleId: string): Observable<ResponseType>{
+  public postComment(comment: string, articleId: string): Observable<ResponseType>{
     return this.http.post<ResponseType>(environment.api + 'comments', {text: comment, article: articleId});
   }
 
-  commentActions(action: string, commentId: string): Observable<ResponseType>{
+  public commentActions(action: string, commentId: string): Observable<ResponseType>{
     return this.http.post<ResponseType>(environment.api + 'comments/' + commentId + '/apply-action', {action: action});
+  }
+
+  public getComments(offset: string, articleId: string): Observable<CommentsType> {
+    const params = new HttpParams()
+      .set('offset', offset)
+      .set('article', articleId);
+    return this.http.get<CommentsType>(environment.api + 'comments', {params});
+  }
+
+  public getCommentsState(articleId: string): Observable<CommentsStateType[] | ResponseType> {
+    const params = new HttpParams()
+      .set('articleId', articleId);
+    return this.http.get<CommentsStateType[] | ResponseType>(environment.api + 'comments/article-comment-actions', {params});
   }
 
 

@@ -6,6 +6,7 @@ export type ArticleType = {
     date: string,
     likesCount: number,
     dislikesCount: number,
+    appliedAction?: string,
     user:{
       id: string,
       name: string,

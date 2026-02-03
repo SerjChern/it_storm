@@ -20,6 +20,7 @@
 
       a {
         color: rgba(185, 213, 253, 1);
+        text-decoration: none;
       }
     }
     .article-head{
@@ -129,6 +130,7 @@
           height: 248px;
           resize: none;
           margin-bottom: 20px;
+          margin-top: 20px;
         }
         .button{
           max-width: 422px;
@@ -191,10 +193,24 @@
               align-items: center;
               margin-right: 15px;
               cursor: pointer;
+              .action{
+                &.active{
+                  svg{
+                    g{
+                      path{
+                        stroke-width: 2;
+                      }
+                    }
+
+                  }
+                }
+              }
             }
           }
         }
-
+        .more-comments-button{
+          margin-bottom: 40px;
+        }
       }
     }
 

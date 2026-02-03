@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable, Subject, tap, throwError} from "rxjs";
+import {BehaviorSubject, Observable, tap, throwError} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {DefaultResponseType} from "../../types/default-response.type";
@@ -16,38 +16,47 @@ export class AuthService {
   public refreshTokenKey: string = 'refreshToken';
   public userNameKey: string = 'userName';
   public userIdKey: string = 'userId';
-  public isLogged$: Subject<boolean> = new Subject<boolean>();
   public userName$ = new BehaviorSubject<string>('');
-  private userName: string = '';
-  private isLogged: boolean = false;
-
-  constructor(private http: HttpClient) {
-    this.isLogged = !!localStorage.getItem(this.accessTokenKey);
+  private isLoggedSubject = new BehaviorSubject<boolean>(
+    !!localStorage.getItem(this.accessTokenKey)
+  );
+  public isLogged$ = this.isLoggedSubject.asObservable();
+  constructor(private readonly http: HttpClient) {
   }
 
-  login(email: string, password: string, rememberMe: boolean): Observable<DefaultResponseType | LoginResponseType> {
+
+
+
+  public login(email: string, password: string, rememberMe: boolean): Observable<DefaultResponseType | LoginResponseType> {
     return this.http.post<DefaultResponseType | LoginResponseType>(environment.api + 'login',
-      {email, password, rememberMe});
+      {email, password, rememberMe})
+      .pipe(
+        tap(response => {
+        if ((response as LoginResponseType).accessToken  && (response as LoginResponseType).refreshToken) {
+          this.isLoggedSubject.next(true);
+        }
+      })
+    );
   }
 
-  signup(name: string, email: string, password: string): Observable<DefaultResponseType | LoginResponseType> {
+  public signup(name: string, email: string, password: string): Observable<DefaultResponseType | LoginResponseType> {
     return this.http.post<DefaultResponseType | LoginResponseType>(environment.api + 'signup',
       {name, email, password});
   }
 
-  getUserInfo(): Observable<DefaultResponseType | UserInfoType> {
+  public getUserInfo(): Observable<DefaultResponseType | UserInfoType> {
     return this.http.get<DefaultResponseType | UserInfoType>(environment.api + 'users') as Observable<DefaultResponseType | UserInfoType>;
   }
 
-  getCategories(): Observable<CategoriesType[]> {
+  public getCategories(): Observable<CategoriesType[]> {
     return this.http.get<CategoriesType[]>(environment.api + 'categories');
   }
 
-  requestService(name: string, phone: string, service: string, type: string): Observable<DefaultResponseType> {
+  public requestService(name: string, phone: string, service: string, type: string): Observable<DefaultResponseType> {
     return this.http.post<DefaultResponseType>(environment.api + 'requests', {name, phone, service, type});
   }
 
-  loadUserInfo(): void {
+  public loadUserInfo(): void {
     this.getUserInfo().subscribe({
       next: (info) => {
         const user = info as UserInfoType;
@@ -62,16 +71,22 @@ export class AuthService {
     });
   }
 
-  logout(): Observable<DefaultResponseType> {
+  public logout(): Observable<DefaultResponseType> {
     const tokens = this.getTokens();
     if (tokens && tokens.refreshToken) {
       return this.http.post<DefaultResponseType>(environment.api + 'logout',
-        {refreshToken: tokens.refreshToken});
+        {refreshToken: tokens.refreshToken})
+        .pipe(
+          tap(() => {
+            this.removeTokens();
+            this.isLoggedSubject.next(false);
+          })
+        );
     }
-    throw throwError(()=> 'Can not fond token');
+    throw throwError(()=> 'Can not found token');
   }
 
-  refresh(): Observable<DefaultResponseType | LoginResponseType> {
+  public refresh(): Observable<DefaultResponseType | LoginResponseType> {
     const tokens = this.getTokens();
     if (tokens && tokens.refreshToken) {
       return this.http.post<DefaultResponseType | LoginResponseType>(environment.api + 'refresh',
@@ -80,22 +95,14 @@ export class AuthService {
     throw throwError(()=> 'Can not refresh token');
   }
 
-  public getIsLoggedIn() {
-    return this.isLogged;
-  }
-
   public setTokens(accessToken: string, refreshToken: string): void {
     localStorage.setItem(this.accessTokenKey, accessToken);
     localStorage.setItem(this.refreshTokenKey, refreshToken);
-    this.isLogged = true;
-    this.isLogged$.next(true);
   }
 
   public removeTokens(): void {
     localStorage.removeItem(this.accessTokenKey);
     localStorage.removeItem(this.refreshTokenKey);
-    this.isLogged = false;
-    this.isLogged$.next(false);
   }
 
   public getTokens():{accessToken: string | null, refreshToken: string | null} {

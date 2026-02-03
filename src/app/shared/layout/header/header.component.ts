@@ -1,35 +1,58 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from "../../../core/auth.service";
-import {UserInfoType} from "../../../../types/user-info.type";
-import {map, Observable} from "rxjs";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {Observable, Subject, takeUntil} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
 
   protected isLogged: boolean = false;
   public userName: string | null = '';
-  isLogged$!: Observable<boolean>;
-  constructor(private router: Router,
-              private authService: AuthService) {
-    this.isLogged = this.authService.getIsLoggedIn();
+  protected logoutOpen : boolean = false;
+  protected isLogged$: Observable<boolean> = this.authService.isLogged$;
+  private destroy$ = new Subject<void>();
+  private userNameKey: string = 'userName'
+
+  constructor(private readonly authService: AuthService,
+              private readonly _matSnackBar: MatSnackBar,
+              private readonly router: Router,) {
     this.authService.userName$.subscribe(user => {
       this.userName = user;
-      console.log(this.userName);
     });
+    this.userName = localStorage.getItem(this.userNameKey);
   }
 
-
-  ngOnInit(): void {
-    this.userName = localStorage.getItem('userName');
+  public ngOnInit(): void {
+    this.authService.isLogged$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(value => {
+      this.isLogged = value;
+    })
   }
 
-  openLogIn(): void {
-    this.router.navigate(['/login']);
+  public ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  protected openLogoutDialog(): void {
+    if (this.isLogged) {
+      this.logoutOpen = !this.logoutOpen;
+    }
+  }
+
+  protected performLogout(): void {
+    this.authService.logout().subscribe(data => {
+      this.authService.removeTokens();
+      this._matSnackBar.open(data.message);
+      this.logoutOpen = false;
+      this.router.navigate(['/']);
+    })
   }
 
 }

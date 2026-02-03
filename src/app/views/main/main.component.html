@@ -25,7 +25,7 @@
       </a>
       <owl-carousel-o [options]="customOptions" #owlCar>
         <ng-template carouselSlide *ngFor="let banner of banners" >
-          <app-banner-card [banner]="banner" (openForm)="openCallBackForm()"></app-banner-card>
+          <app-banner-card [banner]="banner" (openForm)="openCallBackForm('')"></app-banner-card>
         </ng-template>
       </owl-carousel-o>
     </div>
@@ -47,7 +47,7 @@
       </div>
       <div class="auth-inputs">
         <div class="auth-input">
-          <select #mySelect name="categories" class="cetegorie-select">
+          <select #mySelect name="categories" class="cetegorie-select" formControlName="category">
             <option value="">Выберите услугу</option>
             <option value="{{category.name}}" *ngFor="let category of categories">{{category.name}}</option>
           </select>
@@ -71,7 +71,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </ng-template>
 
@@ -99,18 +98,18 @@
   </div>
 </ng-template>
 
-<section class="our-services">
+<section class="our-services" id="our-services">
   <div class="container">
     <div class="our-services-header header">
       Услуги, которые мы предлагаем
     </div>
     <div class="our-services-content">
-      <service-card *ngFor="let service of services" [service]="service"></service-card>
+      <service-card *ngFor="let service of services" [service]="service" (openForm)="openCallBackForm(service.category)"></service-card>
     </div>
   </div>
 </section>
 
-<section class="about">
+<section class="about" id="about">
   <div class="container">
     <div class="about-content">
       <div class="about-content-image">
@@ -177,7 +176,7 @@
   </div>
 </section>
 
-<section class="feedbacks">
+<section class="feedbacks" id="feedbacks">
   <a class="move-backward" (click)="owlCarFb.prev()">
     <svg viewBox="0 0 10 18.6666" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10.000000" height="18.666626" fill="none" customFrame="#000000">
       <defs>
@@ -216,7 +215,7 @@
   </div>
 </section>
 
-<section class="contacts">
+<section class="contacts" id="contacts">
   <div class="container">
     <div class="contacts-map">
       <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A55318b8092fd3288b18b62a43a343d3bbd6458ce8963abbe8906fdce732ce444&amp;source=constructor" width="100%" height="439" frameborder="0"></iframe>

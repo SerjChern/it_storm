@@ -12,7 +12,7 @@
       {{article.description}}
     </div>
     <div class="article-card-actions">
-      <a (click)="openArticle(article.url)">Читать дальше...</a>
+      <a routerLink="/article/{{article.url}}">Читать дальше...</a>
     </div>
   </div>
 </div>

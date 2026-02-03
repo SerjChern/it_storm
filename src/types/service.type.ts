@@ -3,4 +3,5 @@ export type ServiceType = {
   text: string;
   price: string;
   image: string;
+  category: string;
 }

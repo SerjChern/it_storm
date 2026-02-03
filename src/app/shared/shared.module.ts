@@ -10,7 +10,8 @@ import { BannerCardComponent } from './components/banner-card/banner-card.compon
 import { ServiceCardComponent } from './components/service-card/service-card.component';
 import { ArticleCardComponent } from './components/article-card/article-card.component';
 import { FeedbackCardComponent } from './components/feedback-card/feedback-card.component';
-
+import {MatInputModule} from "@angular/material/input";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -36,6 +37,8 @@ import { FeedbackCardComponent } from './components/feedback-card/feedback-card.
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
+    MatInputModule,
+    MatSnackBarModule,
   ]
 })
 export class SharedModule { }
