@@ -34,8 +34,9 @@ export class LoginComponent implements OnInit {
   }
 
   protected login() {
-    if (this.loginForm.valid && this.loginForm.value.email && this.loginForm.value.password) {
-      this.authService.login(this.loginForm.value.email, this.loginForm.value.password, !!this.loginForm.value.rememberMe)
+    const { email, password, rememberMe } = this.loginForm.getRawValue();
+    if (this.loginForm.valid && email && password) {
+      this.authService.login(email, password, !!rememberMe)
         .subscribe({
           next: (data: LoginResponseType | DefaultResponseType)=> {
             let error = null;

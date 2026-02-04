@@ -190,7 +190,6 @@
             display: flex;
             .comment-item-actions-item{
               display: flex;
-              align-items: center;
               margin-right: 15px;
               cursor: pointer;
               .action{
@@ -199,6 +198,7 @@
                     g{
                       path{
                         stroke-width: 2;
+                        stroke: $heading-text-color;
                       }
                     }
 

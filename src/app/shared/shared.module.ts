@@ -12,6 +12,8 @@ import { ArticleCardComponent } from './components/article-card/article-card.com
 import { FeedbackCardComponent } from './components/feedback-card/feedback-card.component';
 import {MatInputModule} from "@angular/material/input";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { LoaderComponent } from './components/loader/loader.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 @NgModule({
@@ -23,12 +25,14 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     ServiceCardComponent,
     ArticleCardComponent,
     FeedbackCardComponent,
+    LoaderComponent,
   ],
   exports: [
     BannerCardComponent,
     ServiceCardComponent,
     ArticleCardComponent,
-    FeedbackCardComponent
+    FeedbackCardComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +43,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatDialogModule,
     MatInputModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
   ]
 })
 export class SharedModule { }

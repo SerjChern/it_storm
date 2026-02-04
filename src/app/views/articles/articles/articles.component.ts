@@ -13,20 +13,20 @@ import {CategoriesType} from "../../../../types/categories.type";
 })
 export class ArticlesComponent implements OnInit {
 
-  parameters: ParamsType = {categories: []};
-  count: number = 0;
-  pages: number[] = [];
-  articles: PopularArticleType[] = [];
-  sortingOpen : boolean = false;
-  categories: CategoriesType[] = [];
-  appliedCategories: CategoriesType[] = [];
+  protected parameters: ParamsType = {categories: []};
+  protected count: number = 0;
+  protected pages: number[] = [];
+  protected articles: PopularArticleType[] = [];
+  protected sortingOpen : boolean = false;
+  protected categories: CategoriesType[] = [];
+  protected appliedCategories: CategoriesType[] = [];
   constructor(private articlesService: ArticlesService,
               private authService: AuthService,
               private router: Router,
               private activatedRoute: ActivatedRoute,
               ) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.authService.getCategories()
       .subscribe((data: CategoriesType[])=>{
         if (data){
@@ -57,11 +57,9 @@ export class ArticlesComponent implements OnInit {
           });
         });
       });
-
-
   }
 
-  sort(value: string) {
+  protected sort(value: string) {
     const categories = this.parameters.categories ?? [];
 
     const exists = categories.includes(value);
@@ -80,7 +78,7 @@ export class ArticlesComponent implements OnInit {
     });
   }
 
-  removeFilter(categoryUrl: string) {
+  protected removeFilter(categoryUrl: string) {
     const newCategories = this.parameters.categories
       ?.filter(c => c !== categoryUrl);
 
@@ -94,11 +92,11 @@ export class ArticlesComponent implements OnInit {
     });
   }
 
-  toggleSorting() {
+  protected toggleSorting() {
     this.sortingOpen = !this.sortingOpen;
   }
 
-  openPrevPage(){
+  protected openPrevPage(){
     if (this.parameters.page && this.parameters.page > 1){
       this.router.navigate([], {
         relativeTo: this.activatedRoute,
@@ -108,7 +106,7 @@ export class ArticlesComponent implements OnInit {
     }
   }
 
-  openNextPage(){
+  protected openNextPage(){
     if (this.parameters.page && this.parameters.page < this.pages.length) {
       this.router.navigate([], {
         relativeTo: this.activatedRoute,
@@ -118,7 +116,7 @@ export class ArticlesComponent implements OnInit {
     }
   }
 
-  openPage(page: number){
+  protected openPage(page: number){
       this.router.navigate([], {
         relativeTo: this.activatedRoute,
         queryParams: { page: page },

@@ -17,7 +17,7 @@ import {FeedbackType} from "../../../types/feedback.type";
 })
 export class MainComponent implements OnInit {
 
-  customOptions: OwlOptions = {
+  protected readonly customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,
     touchDrag: false,
@@ -42,7 +42,7 @@ export class MainComponent implements OnInit {
     },
     nav: false
   };
-  customOptionsFeedback: OwlOptions = {
+  protected readonly customOptionsFeedback: OwlOptions = {
     loop: true,
     mouseDrag: false,
     touchDrag: false,
@@ -67,7 +67,7 @@ export class MainComponent implements OnInit {
     },
     nav: false
   };
-  banners: BannerType[] = [
+  protected banners: BannerType[] = [
     {
       header: 'Предложение месяца',
       text: 'Продвижение в Instagram для вашего бизнеса <span>-15%</span>!',
@@ -86,7 +86,7 @@ export class MainComponent implements OnInit {
       image: 'banner-3.png'
     }
   ]
-  services: ServiceType[] = [
+  protected services: ServiceType[] = [
     {
       header: 'Создание сайтов',
       text: 'В краткие сроки мы создадим качественный и самое главное продающий сайт для продвижения Вашего бизнеса!',
@@ -116,7 +116,7 @@ export class MainComponent implements OnInit {
       category: 'Копирайтинг'
     },
   ]
-  feedbacks: FeedbackType[] = [
+  protected feedbacks: FeedbackType[] = [
     {
       username: 'Станислав',
       text: 'Спасибо огромное АйтиШторму за прекрасный блог с полезными статьями! Именно они и побудили меня углубиться в тему SMM и начать свою карьеру.',
@@ -133,7 +133,7 @@ export class MainComponent implements OnInit {
       avatar: 'maria.png'
     }
   ]
-  popularArticles: PopularArticleType[] = []
+  protected popularArticles: PopularArticleType[] = []
   @ViewChild('callback_popup')callBack!: TemplateRef<ElementRef>;
   @ViewChild('callback_confirmation')callBackConf!: TemplateRef<ElementRef>;
 
@@ -142,21 +142,21 @@ export class MainComponent implements OnInit {
 
   protected submitRequestError: boolean = false;
 
-  callbackForm = this.fb.group({
+  protected callbackForm = this.fb.group({
     category: [''],
     name: ['', [Validators.required]],
     phone: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
   });
 
-  categories: CategoriesType[] = [];
-  constructor(private dialog: MatDialog,
-              private fb: FormBuilder,
-              private authService: AuthService,
-              private articlesService: ArticlesService,) { }
+  protected categories: CategoriesType[] = [];
+  constructor(private readonly dialog: MatDialog,
+              private readonly fb: FormBuilder,
+              private readonly authService: AuthService,
+              private readonly articlesService: ArticlesService,) { }
 
 
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.authService.getCategories()
       .subscribe((data: CategoriesType[])=>{
         if (data){
@@ -169,7 +169,7 @@ export class MainComponent implements OnInit {
     })
   }
 
-  openCallBackForm(categoryName: string){
+  protected openCallBackForm(categoryName: string){
     this.dialogRefCallBack = this.dialog.open(this.callBack);
     this.callbackForm.patchValue({
       category: categoryName
@@ -179,16 +179,17 @@ export class MainComponent implements OnInit {
       });
   }
 
-  closeDialog(){
+  protected closeDialog(){
     this.dialogRefCallBackConf?.close();
     this.dialogRefCallBack?.close();
   }
 
-  submitOrder(service: string,){
-    if (this.callbackForm.value.name && this.callbackForm.value.phone){
-      this.authService.requestService(this.callbackForm.value.name, this.callbackForm.value.phone, service, 'order')
+  protected submitOrder(service: string,){
+    const {name, phone} = this.callbackForm.getRawValue();
+    if (name && phone){
+      this.authService.requestService(name, phone, service, 'order')
         .subscribe({
-          next: (result) => {
+          next: () => {
             this.dialogRefCallBack?.close();
             this.dialogRefCallBackConf = this.dialog.open(this.callBackConf);
             this.dialogRefCallBackConf!.backdropClick().subscribe(() => {});

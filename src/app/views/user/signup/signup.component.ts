@@ -12,8 +12,8 @@ import {HttpErrorResponse} from "@angular/common/http";
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit {
-  signupForm = this.fb.group({
+export class SignupComponent {
+  protected signupForm = this.fb.group({
     name: ['', [Validators.required,
       Validators.pattern(/^([А-ЯЁ][а-яё]+)(\s[А-ЯЁ][а-яё]+)*$/)]],
     email: ['', [Validators.required,
@@ -23,18 +23,15 @@ export class SignupComponent implements OnInit {
     agree: [false, [Validators.required]],
   });
   protected _router = this.router;
-  constructor(private fb: FormBuilder,
-              private authService: AuthService,
-              private _snackBar: MatSnackBar,
-              private router: Router,) { }
-
-  ngOnInit(): void {
-  }
+  constructor(private readonly fb: FormBuilder,
+              private readonly authService: AuthService,
+              private readonly _snackBar: MatSnackBar,
+              private readonly router: Router,) { }
 
   protected signup(): void {
-    if (this.signupForm.valid && this.signupForm.value.email && this.signupForm.value.password
-      && this.signupForm.value.name && this.signupForm.value.agree) {
-      this.authService.signup(this.signupForm.value.name, this.signupForm.value.email, this.signupForm.value.password)
+    const { name, email, password, agree } = this.signupForm.getRawValue();
+    if (this.signupForm.valid && email && password && name && agree) {
+      this.authService.signup(name, email, password)
         .subscribe({
           next: (data: DefaultResponseType | LoginResponseType) => {
             let error = null;

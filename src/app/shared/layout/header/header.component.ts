@@ -43,6 +43,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   protected openLogoutDialog(): void {
     if (this.isLogged) {
       this.logoutOpen = !this.logoutOpen;
+    } else {
+      this.router.navigate(['login']);
     }
   }
 

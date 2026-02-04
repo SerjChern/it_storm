@@ -10,7 +10,7 @@ export class AgreementComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.route.fragment.subscribe(fragment => {
       if (fragment) {
         setTimeout(() => {
