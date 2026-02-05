@@ -93,6 +93,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
   protected likeComment(commentId: string): void {
     this.articlesService.commentActions('like', commentId).subscribe(response => {
       if (!response.error && this.article != null) {
+        this.loadArticle(this.url);
         this.getCommentsState(this.article.id);
         this._snackBar.open('Ваш голос учтен');
       } else {
@@ -104,6 +105,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
   protected dislikeComment(commentId: string): void {
     this.articlesService.commentActions('dislike', commentId).subscribe(response => {
       if (!response.error && this.article != null) {
+        this.loadArticle(this.url);
         this.getCommentsState(this.article.id);
         this._snackBar.open('Ваш голос учтен');
       } else {
