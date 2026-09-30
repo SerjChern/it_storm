@@ -8,7 +8,7 @@ import {FeedbackType} from "../../../../types/feedback.type";
 })
 export class FeedbackCardComponent implements OnInit {
   @Input() feedback!: FeedbackType;
-  protected feedbackImgPath: string = '/assets/images/feedback/';
+  protected feedbackImgPath: string = 'assets/images/feedback/';
   constructor() { }
 
   ngOnInit(): void {
