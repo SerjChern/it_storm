@@ -10,7 +10,7 @@ export class ServiceCardComponent implements OnInit {
 
   @Input() service!: ServiceType;
   @Output() openForm = new EventEmitter<void>();
-  protected serviceImgPath: string = '/assets/images/service-cards/';
+  protected serviceImgPath: string = 'assets/images/service-cards/';
   constructor() { }
 
   ngOnInit(): void {
